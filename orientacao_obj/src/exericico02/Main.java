@@ -21,13 +21,5 @@ public class Main {
         System.out.println("Frequência Max : " +calcFreqCardMax);
         System.out.println("Alvo inicial : " +df.format(alvo[0]));
         System.out.println("Alvo final : " +df.format(alvo[1]));
-
-
-
-
-
-
-
     }
-
 }
