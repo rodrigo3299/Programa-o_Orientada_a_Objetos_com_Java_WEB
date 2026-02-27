@@ -14,7 +14,4 @@ public class Pacientes {
         alvo[1] = frequencia * 0.85;
         return alvo;
     }
-
 }
-
-
