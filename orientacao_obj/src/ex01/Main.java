@@ -1,4 +1,3 @@
-package ex01;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,17 +5,33 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Random rd = new Random();
+        Random random = new Random();
         Conta conta = new Conta();
+        Conta conta2 = new Conta();
 
-        System.out.print("Correntista : ");
+        // entrada de dados
+        System.out.print("Correntista --> ");
         conta.correntista = sc.next();
-        conta.numero = rd.nextInt(1000, 9999);
+        conta.numero = random.nextInt(1000, 10000);
 
-        conta.depositar(1000);
-        System.out.println(conta.saldo);
+        // imprime o saldo
+        System.out.println("saldo atual: R$ " + conta.saldo);
 
-        conta.sacar(750);
+        // depósito de R$ 500
+        conta.depositar(500);
+
+        // imprime o saldo
+        System.out.println("saldo atual: R$ " + conta.saldo);
+
+        // saque de R$ 300
+        conta.sacar(300);
+
+        // imprime o saldo
+        System.out.println("saldo atual: R$ " + conta.saldo);
+
+        // transferência da conta para conta2
+        conta.transferir(200, conta2);
         System.out.println(conta.saldo);
+        System.out.println(conta2.saldo);
     }
 }
