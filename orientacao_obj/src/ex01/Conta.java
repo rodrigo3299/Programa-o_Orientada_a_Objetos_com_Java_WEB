@@ -1,5 +1,3 @@
-package ex01;
-
 public class Conta {
     //atributos
     int numero;
@@ -15,5 +13,8 @@ public class Conta {
     public void sacar(double valor){
         saldo = saldo - valor;
     }
+    public void transferir(double valor, Conta destino){
+        sacar(valor);
+        destino.depositar(valor);
+    }
 }
-
