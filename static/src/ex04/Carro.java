@@ -11,8 +11,9 @@ public class Carro {
         contador++;
     }
 
-    public int getTotal(){
+    public static int getTotal(){
         return contador;
     }
 
 }
+
