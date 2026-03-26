@@ -32,6 +32,16 @@ public class Departamento {
         return null;
     }
 
+    public double calcularFolhaTotalLiquida(){
+        double total = 0;
+        for (int i = 0; i < index; i++) {
+            if(funcionarios[i].isAtivo()){
+                total += funcionarios[i].calcularSalarioLiquido();
+            }
+        }
+        return total;
+    }
+
     public String getCodigo() {
         return codigo;
     }
