@@ -1,10 +1,15 @@
 package br.fiap.util;
 
+import br.fiap.carga.Carga;
+import br.fiap.cliente.Cliente;
+import br.fiap.viagem.Viagem;
+
 import static javax.swing.JOptionPane.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.Double.parseDouble;
 
 public class Util {
+    private Viagem viagem = new Viagem();
     public void menu(){
         int opcao;
         do{
@@ -22,13 +27,30 @@ public class Util {
             else {
                 switch(opcao){
                     case 1 -> reservar();
-                    
+                    case 4 -> capacidadeReservada();
                 }
             }
         } while (opcao != 6);
     }
 
-    private void reservar() {
+    private void capacidadeReservada() {
+        showMessageDialog(null, "Capacidade atual" +viagem.capacidadeReservada());
+    }
 
+    private void reservar() {
+        int cnpj;
+        String destino, nomeCliente;
+
+        cnpj = parseInt(showInputDialog("CNPJ"));
+        destino = showInputDialog("Destino da carga ");
+        nomeCliente = showInputDialog("Nome do cliente");
+        Cliente cliente = new Cliente(cnpj, nomeCliente);
+        Carga carga = new Carga(destino, cliente);
+        if(viagem.reservar(carga)) {
+            showMessageDialog(null, "Carga reservada com sucesso");
+        }
+        else {
+            showMessageDialog(null, "Entre em contato com a administração");
+        }
     }
 }
