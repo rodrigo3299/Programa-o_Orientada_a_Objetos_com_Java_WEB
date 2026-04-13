@@ -20,7 +20,7 @@ public class Viagem {
 
     public boolean reservar(Carga carga){
         if(permitidoReservar(carga.getPeso())){
-            this.carga[index] = carga;
+            this.carga[index++] = carga;
             return true;
         }
         return false;
@@ -40,5 +40,33 @@ public class Viagem {
             aux += carga[i].getDados();
         }
         return aux;
+    }
+
+    //metodo para pesquisar uma carga pelo CNPJ
+    public Carga pesquisar(int cnpj){
+        int posicao = buscarPorIndice(cnpj);
+        if(posicao != -1){
+            return carga[posicao];
+        }
+        return null;
+    }
+
+    private int buscarPorIndice(int cnpj){
+        for (int i = 0; i < index; i++) {
+            if(carga[i].getCliente().getCnpj() == cnpj) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean cancelar(int cnpj){
+        int posicao = buscarPorIndice(cnpj);
+        if (posicao == -1) {
+            return false;
+        }
+        carga[posicao] = carga[index -1];
+        index--;
+        return true;
     }
 }

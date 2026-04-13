@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Carga {
     private int id;
-    private String destino;
     private double peso;
+    private String destino;
     private Cliente cliente;
 
     public Carga(String destino, Cliente cliente) {
@@ -17,52 +17,50 @@ public class Carga {
         this.peso = gerarPeso();
     }
 
-    private int gerarId(){
+    private int gerarId() {
         Random random = new Random();
-        return random.nextInt(1000,9999);
+        return random.nextInt(1000, 9999);
     }
 
-    private double gerarPeso(){
+    private double gerarPeso() {
         Random random = new Random();
-        return random.nextDouble(50,200);
+        return random.nextDouble(50, 200);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public String getDados(){
+    public String getDados() {
         String aux = "";
-        aux += "Id: " + id + "\n";
+        aux += "ID: " + id + "\n";
         aux += "Destino: " + destino + "\n";
         aux += "Peso: " + peso + "Kg\n";
         aux += cliente.getDados();
         return aux;
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public double getPeso() {
+        return peso;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 }

@@ -27,10 +27,40 @@ public class Util {
             else {
                 switch(opcao){
                     case 1 -> reservar();
+                    case 2 -> pesquisar();
+                    case 3 -> exibir();
                     case 4 -> capacidadeReservada();
+                    case 5 -> cancelar();
+                    case 6 -> showMessageDialog(null,"Até breve");
+                    default -> showMessageDialog(null, "Opção inválida");
                 }
             }
         } while (opcao != 6);
+    }
+
+    private void cancelar() {
+         int cnpj = parseInt((showInputDialog("CNPJ para busca")));
+         if(viagem.cancelar(cnpj)){
+             showMessageDialog(null, "Carga cancelada");
+         }
+         else{
+             showMessageDialog(null,"Carga não encontrada");
+         }
+    }
+
+    private void pesquisar() {
+        int cnpj = parseInt(showInputDialog("CNPJ para busca"));
+        Carga carga = viagem.pesquisar(cnpj);
+        if(carga == null){
+            showMessageDialog(null, "CNPJ não encontrado");
+        }
+        else {
+            showMessageDialog(null, carga.getDados());
+        }
+    }
+
+    private void exibir() {
+        showMessageDialog(null, viagem.getDados());
     }
 
     private void capacidadeReservada() {
