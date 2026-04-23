@@ -1,10 +1,14 @@
 public class EmpregadoHorista  extends Empregado {
     int totalDeHorasTrabalhadas;
-    double valorDaHoraTrabalhada;
+    double valorDaHora;
 
     public EmpregadoHorista(long matricula, String nome, int totalDeHorasTrabalhadas, double  valorDaHoraTrabalhada){
-        super(matricula, nome);
+        super(matricula,nome);
         this.totalDeHorasTrabalhadas = totalDeHorasTrabalhadas;
-        this.valorDaHoraTrabalhada = valorDaHoraTrabalhada;
+        this.valorDaHora = valorDaHora;
+    }
+
+    public double caclSalario(){
+        return totalDeHorasTrabalhadas * valorDaHora;
     }
 }

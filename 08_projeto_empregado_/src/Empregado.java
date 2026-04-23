@@ -6,4 +6,8 @@ public class Empregado {
         this.matricula = matricula;
         this.nome = nome;
     }
+
+    public double CalcSalario(){
+        return 0;
+    }
 }

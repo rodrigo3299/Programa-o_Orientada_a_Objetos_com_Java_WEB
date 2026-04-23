@@ -16,7 +16,9 @@ public class Main {
         //for genérico
         System.out.println("########");
         for(Empregado e : empregado){
-            
+            System.out.println(e.matricula);
+            System.out.println(e.nome);
+            System.out.println();
         }
     }
 }
