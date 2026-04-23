@@ -8,7 +8,7 @@ public class EmpregadoComissionado extends Empregado{
         this.comissao = comissao;
     }
 
-    public double caclSalario(){
+    public double calcSalario(){
         return totalDeVendas * comissao/100;
     }
 }

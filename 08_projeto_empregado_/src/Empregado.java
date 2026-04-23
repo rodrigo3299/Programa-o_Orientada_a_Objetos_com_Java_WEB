@@ -7,7 +7,7 @@ public class Empregado {
         this.nome = nome;
     }
 
-    public double CalcSalario(){
+    public double calcSalario(){
         return 0;
     }
 }

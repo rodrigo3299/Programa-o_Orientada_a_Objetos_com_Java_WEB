@@ -10,6 +10,7 @@ public class Main {
         for (int i = 0; i < empregado.length; i++) {
             System.out.println(empregado[i].matricula);
             System.out.println(empregado[i].nome);
+            System.out.println(empregado[i].calcSalario());
             System.out.println();
         }
 
@@ -18,6 +19,7 @@ public class Main {
         for(Empregado e : empregado){
             System.out.println(e.matricula);
             System.out.println(e.nome);
+            System.out.println(e.calcSalario());
             System.out.println();
         }
     }
