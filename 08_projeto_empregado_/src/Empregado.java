@@ -1,4 +1,4 @@
-public class Empregado {
+public abstract class Empregado {
     long matricula;
     String nome;
 
@@ -7,7 +7,13 @@ public class Empregado {
         this.nome = nome;
     }
 
-    public double calcSalario(){
-        return 0;
+    public abstract double calcSalario();
+
+    @Override
+    public String toString() {
+        return "Empregado{" +
+                "matricula=" + matricula +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }
