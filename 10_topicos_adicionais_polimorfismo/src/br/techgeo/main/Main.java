@@ -2,27 +2,28 @@ package br.techgeo.main;
 
 import br.techgeo.forma.Cilindro;
 import br.techgeo.forma.Circulo;
+import br.techgeo.forma.Forma;
+import br.techgeo.forma.Volume;
 import br.techgeo.ponto.Ponto;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Ponto ponto;
+        ArrayList<Forma> lista = new ArrayList<>();
+        lista.add(new Circulo(new Ponto(2,2),2));
+        lista.add(new Cilindro(new Ponto(0,0), 3,4));
+        lista.add(new Circulo(new Ponto(2,2),2));
+        lista.add(new Cilindro(new Ponto(0,0), 3,4));
 
-        //objeto circulo
-        ponto = new Ponto(0,0);
-        Circulo circulo = new Circulo(ponto,5);
 
-        //objeto cilindro
-        ponto = new Ponto(2, -3);
-        Cilindro cilindro = new Cilindro(ponto, 8, 2);
-
-        System.out.println("Circulo");
-        System.out.println(circulo);
-        System.out.println("Área = " + circulo.calcularArea());
-
-        System.out.println("\nCilindro");
-        System.out.println(cilindro);
-        System.out.println("Área = " + cilindro.calcularArea());
-        System.out.println("Volume = " + cilindro.calcularVolume());
+        for (Forma forma : lista){
+            System.out.println(forma);
+            System.out.println(forma.calcularArea());
+            if (forma instanceof Volume){
+                System.out.println(((Volume)forma).calcularVolume());
+            }
+            System.out.println();
+        }
     }
 }
